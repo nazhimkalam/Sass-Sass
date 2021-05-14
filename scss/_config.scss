@@ -1,0 +1,22 @@
+// This is known as a partial file which means that this won't be compiled but will be used for stuff like called variables to other scss file
+
+$font-stack: Arial, Helvetica, sans-serif;
+$light-color: #f4f4f4;
+// $primary-color: rgb(59, 111, 255);
+$primary-color: white;
+$secondary-color: orange;
+
+// Set text color based on bgm
+@function set-text-color($color){
+    @if(lightness($color) > 70){
+        @return #333;
+    }@else{
+        @return white;
+    }
+}
+
+// Set background color & text color
+@mixin set-background-color($color){
+    background-color: $color;
+    color: set-text-color($color);
+}
